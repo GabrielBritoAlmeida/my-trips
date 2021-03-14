@@ -38,13 +38,22 @@ const GlobalStyles: GlobalStyleComponent<
       height: 100%;
     }
 
+    p {
+      font-size: 2rem;
+      line-height: ${theme.font.sizes.medium};
+    }
+
+    a {
+      color: ${theme.colors.highlight};
+    }
+
     body {
       font-family: ${theme.font.family};
-      font-size: ${theme.font.sizes.medium};
 
       ${!removeBg &&
       css`
-        background-color: ${theme.colors.primary};
+        background-color: ${theme.colors.background};
+        color: ${theme.colors.white};
       `}
     }
   `}
