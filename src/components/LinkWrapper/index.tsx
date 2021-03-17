@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 import * as S from './styles'
 
 type LinkWrapperProps = {
@@ -6,7 +8,9 @@ type LinkWrapperProps = {
 }
 
 const LinkWrapper = ({ href, children }: LinkWrapperProps) => (
-  <S.Wrapper>{children}</S.Wrapper>
+  <S.Wrapper>
+    <Link href={href}>{children}</Link>
+  </S.Wrapper>
 )
 
 export default LinkWrapper

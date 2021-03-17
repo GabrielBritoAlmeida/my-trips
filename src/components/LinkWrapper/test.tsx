@@ -1,13 +1,15 @@
-import { render, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
+import { renderWithTheme } from 'utils/tests/helpers'
 
 import LinkWrapper from '.'
 
 describe('<LinkWrapper />', () => {
-  it('should render the heading', () => {
-    const { container } = render(<LinkWrapper />)
+  it('should render and children', () => {
+    renderWithTheme(<LinkWrapper href="/my-link">Anything</LinkWrapper>)
 
-    expect(screen.getByRole('heading', { name: /LinkWrapper/i })).toBeInTheDocument()
+    const children = screen.getByText(/anything/i)
 
-    // expect(container.firstChild).toMatchSnapshot()
+    expect(children).toBeInTheDocument()
+    expect(children).toHaveAttribute('href', '/my-link')
   })
 })
